@@ -5,7 +5,7 @@ using namespace std;
    List is built on Node. Hence List needs to know internals of Node
    void List::append(Node *) needs internals of Node - hence member friend function is used
    void List::display() needs internals of Node - hence member friend function is used
-   We can do better with friend classes
+   We can do better with friend classes - See line 30
 */
 class Node; // Forward declaration
 class List{
@@ -25,8 +25,9 @@ class Node{
     Node *next;
  public:
     Node(int i): info(i), next(0){}
-    friend void List::display();
-    friend void List::append(Node *);
+//     friend void List::display();
+//     friend void List::append(Node *);
+    friend class List;
 };
 
 void List::display() {
